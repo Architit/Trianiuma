@@ -1,0 +1,10 @@
+# Python cache and compiled files
+__pycache__/
+*.py[cod]
+*.pyo
+env/
+.venv/
+# OS files
+.DS_Store
+# Logs
+logs/
