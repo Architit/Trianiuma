@@ -1,0 +1,2 @@
+# Ignore local file references
+file:///**
