@@ -9,3 +9,4 @@ Format:
 2026-02-13 07:24 UTC — governance: protocol sync header rolled out (source=RADRILONIUMA-PROJECT version=v1.0.0 commit=7eadfe9) [protocol-sync-header-v1]
 2026-02-16 07:26 UTC — governance: protocol hard-rule synced (`global-final-publish-step-mandatory-v1`) — final close step fixed as mandatory `git push origin main`; `COMPLETE` requires push evidence.
 2026-02-16 07:56 UTC — governance: workflow optimization protocol sync (`workflow-optimization-protocol-sync-v2`) — enforced `M46`, manual intervention fallback, and `ONE_BLOCK_PER_OPERATOR_TURN` across repository protocol surfaces.
+2026-02-16 22:18 UTC — governance: S1 phase checkpoint synced with SoT (`RADRILONIUMA-PROJECT/TASK_MAP.md`) — mirrored active signals (`t7 ACTIVE long-running`, `t68 ACTIVE`) and phase8.0 readiness queue.
