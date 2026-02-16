@@ -49,3 +49,11 @@ protocol_semantic_en: neutral
 - pointer_ref: TASK_MAP.md (t7 ACTIVE long-running, t68 ACTIVE, phase8.0 readiness queue)
 - branch: main
 - git_status: ## main...origin/main
+
+## Governance Sync
+- 2026-02-16 22:31 UTC — s2-canonical-heartbeat-pointer-sync-v1
+- protocol_source: RADRILONIUMA-PROJECT
+- pointer_ref: GOV_STATUS.md canonical heartbeat pointer (`2026-02-16 02:54 UTC`)
+- canonical_heartbeat_asr: gov/asr/sessions/2026-02-16__ASR__atplt-strict-arckhangel-guarddog-recovery-wave-cycle21.md
+- branch: main
+- git_status: ## main...origin/main
