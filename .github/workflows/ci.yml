@@ -7,7 +7,21 @@ on:
     branches: [ main ]
 
 jobs:
+  submodule_gate:
+    uses: ./.github/workflows/submodule-gate.yml
+    with:
+      python_version: "3.12"
+      required_submodules: |
+        agents/test-agent
+        agents/operator-agent
+      install_command: |
+        true
+      test_command: |
+        true
+    secrets: inherit
+
   build:
+    needs: submodule_gate
     runs-on: ubuntu-latest
 
     env:
@@ -22,15 +36,6 @@ jobs:
           fetch-depth: 0
           submodules: recursive
           token: ${{ env.GH_SUBMODULE_TOKEN != '' && env.GH_SUBMODULE_TOKEN || github.token }}
-
-      - name: Verify submodule checkout
-        run: |
-          git submodule status --recursive | tee /tmp/sub_recursive.txt
-          git submodule status agents/test-agent | tee /tmp/sub_test.txt
-          git submodule status agents/operator-agent | tee /tmp/sub_operator.txt
-          ! grep -qE '^-' /tmp/sub_recursive.txt
-          ! grep -qE '^-' /tmp/sub_test.txt
-          ! grep -qE '^-' /tmp/sub_operator.txt
 
       # ── 1. Set up Python ──────────────────────────────────────────
       - name: Setup Python
