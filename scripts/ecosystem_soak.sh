@@ -84,7 +84,7 @@ for ((i=1; i<=ITERATIONS; i++)); do
   fi
 done
 
-last_summary_json="$(printf '%s' "$last_summary" | python3 -c 'import json,sys; print(json.dumps(sys.stdin.read()))')"
+last_summary_json="$(printf '%s' "$last_summary" | "$PYTHON_BIN" -c 'import json,sys; print(json.dumps(sys.stdin.read()))')"
 
 cat <<EOF
 {

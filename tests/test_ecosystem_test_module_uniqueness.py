@@ -5,6 +5,9 @@ from pathlib import Path
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
+EXCLUDED_PATH_SEGMENTS = (
+    "/agents/operator-agent/agents/test-agent/",
+)
 
 
 def _scan_roots() -> list[Path]:
@@ -21,6 +24,9 @@ def test_test_module_basenames_are_unique_across_ecosystem() -> None:
         if not root.exists():
             continue
         for path in root.rglob("test_*.py"):
+            normalized = "/" + str(path.relative_to(REPO_ROOT)).replace("\\", "/")
+            if any(segment in normalized for segment in EXCLUDED_PATH_SEGMENTS):
+                continue
             by_name[path.name].append(str(path.relative_to(REPO_ROOT)))
 
     duplicates = {name: paths for name, paths in by_name.items() if len(paths) > 1}

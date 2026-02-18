@@ -15,3 +15,4 @@ Format:
 2026-02-17 04:07 UTC — sync expansion wave continued — added gateway/entrypoint contract checks and expanded suite from 8 to 10 checks (`10 passed`).
 2026-02-17 04:14 UTC — negative-path wave added — gateway CLI error paths covered (unknown command, import without archive); suite expanded from 10 to 12 checks (`12 passed`).
 2026-02-18 10:35 UTC — ecosystem hardening release finalized — added runtime/script/governance/soak/snapshot contract suites, stabilized gateway entrypoints, and validated cross-repo matrix (`35 + 201 + 7 passed`).
+2026-02-18 09:45 UTC — post-release hardening patchset — `ecosystem_soak.sh` switched JSON encoding to resolved `PYTHON_BIN`, uniqueness scan excludes mirrored vendor subtree (`agents/operator-agent/agents/test-agent`), and agent dev log path normalized to `<WORK_ROOT>`.

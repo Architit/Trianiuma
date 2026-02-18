@@ -93,3 +93,9 @@ def test_soak_script_cleans_up_tmp_logs() -> None:
     assert proc.returncode == 0, proc.stderr
     after = {p.name for p in Path("/tmp").glob(pattern)}
     assert after - before == set()
+
+
+def test_soak_script_does_not_require_hardcoded_python3_for_json_encoding() -> None:
+    text = SCRIPT.read_text(encoding="utf-8")
+    assert 'python3 -c \'import json,sys; print(json.dumps(sys.stdin.read()))\'' not in text
+    assert '"$PYTHON_BIN" -c \'import json,sys; print(json.dumps(sys.stdin.read()))\'' in text
