@@ -8,10 +8,10 @@ on:
 
 jobs:
   submodule_gate:
-    uses: ./.github/workflows/submodule-gate.yml
+    uses: Architit/RADRILONIUMA-PROJECT/.github/workflows/submodule-gate.yml@main
     with:
       python_version: "3.12"
-      required_submodules: |
+      submodule_paths: |
         agents/test-agent
         agents/operator-agent
       install_command: |
@@ -25,11 +25,9 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      # Personal-access-token с правом repo:read для приватных сабмодулей
       GH_SUBMODULE_TOKEN: ${{ secrets.SUBMODULE_PAT }}
 
     steps:
-      # ── 0. Checkout ───────────────────────────────────────────────
       - name: Checkout
         uses: actions/checkout@v4
         with:
@@ -37,34 +35,27 @@ jobs:
           submodules: recursive
           token: ${{ env.GH_SUBMODULE_TOKEN != '' && env.GH_SUBMODULE_TOKEN || github.token }}
 
-      # ── 1. Set up Python ──────────────────────────────────────────
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
-      # ── 2. Upgrade pip ────────────────────────────────────────────
       - name: Upgrade pip
         run: python -m pip install --upgrade pip
 
-      # ── 3. Install dev-deps ───────────────────────────────────────
       - name: Install requirements-dev
         run: python -m pip install -r requirements-dev.txt
 
-      # ── 4. Pylint (не блокирует билд) ─────────────────────────────
       - name: Pylint
         run: pylint src
         continue-on-error: true
 
-      # ── 5. Ruff (не блокирует билд) ───────────────────────────────
       - name: Ruff
         run: ruff check .
         continue-on-error: true
 
-      # ── 6. Mypy (блокирующий) ─────────────────────────────────────
       - name: Mypy
         run: mypy src
 
-      # ── 7. Pytest — только ping-pong skeleton ─────────────────────
       - name: Pytest
         run: pytest -q tests/test_ping_pong.py
