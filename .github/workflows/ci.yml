@@ -21,7 +21,16 @@ jobs:
         with:
           fetch-depth: 0
           submodules: recursive
-          token: ${{ env.GH_SUBMODULE_TOKEN }}
+          token: ${{ env.GH_SUBMODULE_TOKEN != '' && env.GH_SUBMODULE_TOKEN || github.token }}
+
+      - name: Verify submodule checkout
+        run: |
+          git submodule status --recursive | tee /tmp/sub_recursive.txt
+          git submodule status agents/test-agent | tee /tmp/sub_test.txt
+          git submodule status agents/operator-agent | tee /tmp/sub_operator.txt
+          ! grep -qE '^-' /tmp/sub_recursive.txt
+          ! grep -qE '^-' /tmp/sub_test.txt
+          ! grep -qE '^-' /tmp/sub_operator.txt
 
       # ── 1. Set up Python ──────────────────────────────────────────
       - name: Setup Python
