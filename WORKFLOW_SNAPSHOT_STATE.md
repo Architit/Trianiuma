@@ -3,57 +3,47 @@
 ## Identity
 repo: Trianiuma
 branch: main
-timestamp: 2026-02-13T07:24:00Z
+timestamp: 2026-02-20T10:25:00Z
 
 ## Current pointer
-phase: Governance baseline
-stage: artifact seeding complete; pending commit/push
-protocol_scale: 0
-protocol_semantic_en: neutral
+phase: Phase 8.0 — New Version Birth Orchestration
+stage: Release Launch Gate Preparation
+protocol_scale: 1
+protocol_semantic_en: aligned
+goal:
+- sync governance baseline with SoT
+- verify integrity of core artifacts
+- prepare for release launch gate
+constraints:
+- contracts-first
+- observability-first
+- derivation-only
+- NO runtime logic
+- NO execution-path impact
+
+## Verification
+- Phase 8.0 selected with explicit goal and DoD.
+- Heartbeat is GREEN (SoT confirmed).
+- Protocol Drift Gate PASSED (INTERACTION_PROTOCOL.md synced).
+- Working tree HEALED.
 
 ## Recent commits
-- a617da3 ююю
-- 9508715 init: add archlogcore/Δ.risks/.gitkeep
-- d6d5914 init: add archlogcore/Δ.decisions/.gitkeep
-- b397dd8 init: add archlogcore/Δ.tasks/.gitkeep
-- c346ed7 init: add archlogcore/Δ.snap/.gitkeep
-- 4645c96 init: add archlogcore/Δ.ref/2025/08/Δ.ref.2025-08-08.01.md
-- 487a562 init: add archlogcore/Δ.raw/2025/08/Δ.raw.2025-08-08.voice.01.yaml
-- ac055bf init: add .lycheeignore
+- 143ff4b fix: close soak portability and ecosystem scan drift
+- a81fdc7 chore: ignore local runtime dirs and refresh test-agent pointer
+- 493698c release: finalize ecosystem hardening and contract test matrix
+- 37c4a53 ci: pin RADR submodule-gate to v1.0.0
+- 56cbb16 ci: consume submodule-gate from RADR SoT
 
 ## Git status
 ## main...origin/main
-?? DEV_LOGS.md
-?? INTERACTION_PROTOCOL.md
-?? ROADMAP.md
-?? SYSTEM_STATE_CONTRACT.md
-?? WORKFLOW_SNAPSHOT_CONTRACT.md
+ M DEV_LOGS.md
+ M INTERACTION_PROTOCOL.md
+ M ROADMAP.md
 
-## Governance Sync
-- 2026-02-13 08:30 UTC — restart-semantics-unified-v1
-- branch: main
-- git_status: ## main...origin/main
-- NEW_CHAT_INIT_MESSAGE: cld rstrt NEW
-
-## Governance Sync
-- 2026-02-13 07:24 UTC — protocol-sync-header-v1
-- protocol_source: RADRILONIUMA-PROJECT
-- protocol_version: v1.0.0
-- last_sync_commit: 7eadfe9
-- branch: main
-- git_status: ## main...origin/main
-
-## Governance Sync
-- 2026-02-16 22:18 UTC — s1-cross-repo-sync-checkpoint-v1
-- protocol_source: RADRILONIUMA-PROJECT
-- pointer_ref: TASK_MAP.md (t7 ACTIVE long-running, t68 ACTIVE, phase8.0 readiness queue)
-- branch: main
-- git_status: ## main...origin/main
-
-## Governance Sync
-- 2026-02-16 22:31 UTC — s2-canonical-heartbeat-pointer-sync-v1
-- protocol_source: RADRILONIUMA-PROJECT
-- pointer_ref: GOV_STATUS.md canonical heartbeat pointer (`2026-02-16 02:54 UTC`)
-- canonical_heartbeat_asr: gov/asr/sessions/2026-02-16__ASR__atplt-strict-arckhangel-guarddog-recovery-wave-cycle21.md
-- branch: main
-- git_status: ## main...origin/main
+## References
+- INTERACTION_PROTOCOL.md
+- RADRILONIUMA-PROJECT/GOV_STATUS.md
+- ROADMAP.md
+- DEV_LOGS.md
+- WORKFLOW_SNAPSHOT_CONTRACT.md
+- WORKFLOW_SNAPSHOT_STATE.md
